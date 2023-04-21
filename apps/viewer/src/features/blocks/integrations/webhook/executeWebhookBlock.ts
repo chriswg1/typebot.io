@@ -203,6 +203,7 @@ export const executeWebhook =
           : undefined,
       body: body && !isJson ? body : undefined,
     }
+    console.log(request.url, omit(request, 'url'))
     try {
       const response = await got(request.url, omit(request, 'url'))
       await saveSuccessLog({
